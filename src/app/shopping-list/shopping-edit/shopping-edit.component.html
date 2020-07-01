@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form (ngSubmit)="onSumbit(f)" #f="ngForm">
+      <div class="row">
+        <div col-xs-5 form-group>
+          <label for="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            class="form-control"
+            ngModel
+            required
+            name="name"
+            #name="ngModel"
+          />
+          <span *ngIf="name.touched && !name.valid" class="help-block"
+            >Please enter name</span
+          >
+        </div>
+        <div col-xs-2 form-group>
+          <label for="amount">Amount</label>
+          <input
+            id="amount"
+            type="number"
+            required
+            class="form-control"
+            ngModel
+            name="amount"
+            #amount="ngModel"
+            pattern="^(0|[1-9][0-9]*)$"
+          />
+          <span *ngIf="amount.touched && !amount.valid"
+            >Please enter valid amount</span
+          >
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">
+            {{ editedMode ? "Update" : "Add" }}
+          </button>
+          &nbsp;
+          <button
+            class="btn btn-danger"
+            type="button"
+            (click)="onDelete()"
+            *ngIf="editedMode"
+          >
+            Delete
+          </button>
+          &nbsp;
+          <button
+            class="btn btn-primary"
+            type="button"
+            (click)="f.reset(); editedMode = false"
+          >
+            Clear
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
