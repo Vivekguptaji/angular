@@ -90,4 +90,5 @@ export class RecipeEditComponent implements OnInit {
       ingredents: ingredents,
     });
   }
+  console.log('ji')
 }
