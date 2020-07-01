@@ -31,4 +31,9 @@ export class RecipesDetailsComponent implements OnInit {
       this.shopingListService.addIngredent(ingredent);
     });
   }
+  onDelete() {
+    let id = +this.activatedRoute.snapshot.params['id'];
+    this.recipeService.deleteRecipe(id);
+    this.router.navigate(['recipes']);
+  }
 }

@@ -10,7 +10,9 @@
           >
             Save</button
           >&nbsp;
-          <button type="button" class="btn btn-danger">Cancel</button>
+          <button type="button" class="btn btn-danger" (click)="onCancel()">
+            Cancel
+          </button>
         </div>
       </div>
       <hr />
@@ -32,13 +34,14 @@
             class="form-control"
             type="text"
             id="imagePath"
+            #imagePath
             formControlName="imagePath"
           />
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <img src="" alt="" class="image-responsive" />
+          <img [src]="imagePath.value" alt="" class="image-responsive" />
         </div>
       </div>
       <div class="row">
@@ -79,7 +82,13 @@
               />
             </div>
             <div class="col-xs-2">
-              <button class="btn btn-danger">X</button>
+              <button
+                class="btn btn-danger"
+                type="button"
+                (click)="onDeleteIngredient(i)"
+              >
+                X
+              </button>
             </div>
           </div>
         </div>

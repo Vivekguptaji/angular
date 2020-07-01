@@ -38,4 +38,8 @@ export class RecipeService {
 
     return this.recipes.find((value) => value.id == id);
   }
+  deleteRecipe(id) {
+    this.recipes.splice(id, 1);
+    this.recipeChanged.next(this.recipes.slice());
+  }
 }
