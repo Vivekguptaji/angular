@@ -1,3 +1,4 @@
+import { DataStorageService } from './../share/data.storage.serivec';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,5 +8,14 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   collapsed = true;
-  constructor(private route: Router) {}
+  constructor(
+    private route: Router,
+    private dataStorageService: DataStorageService
+  ) {}
+  onSaveRecipe() {
+    this.dataStorageService.storeRecipes();
+  }
+  onFetchRecipe() {
+    this.dataStorageService.fetchRecipes();
+  }
 }

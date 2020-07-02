@@ -94,6 +94,7 @@ export class RecipeEditComponent implements OnInit {
   onDeleteIngredient(index) {
     const ingredentArray = this.recipeForm.get('ingredents') as FormArray;
     ingredentArray.removeAt(index);
+    //this.recipeForm.get('ingredients')).clear(); to remove all item from array
   }
   onCancel() {
     this.recipeForm.reset();
